@@ -208,20 +208,17 @@ open class DKKeyFrameAnimation: CAKeyframeAnimation {
     }
 
     fileprivate func valueArrayFor(startValue: CGFloat, endValue: CGFloat) -> NSArray {
-        let startValue = Double(startValue)
-        let endValue = Double(endValue)
-
         let steps: Int = Int(ceil(Double(kFPS) * self.duration)) + 2
         let increment = 1.0 / (Double)(steps - 1)
         var progress = 0.0
         var v = 0.0
-        var value = 0.0
+        var value: CGFloat = 0.0
 
-        var valueArray: [Double] = []
+        var valueArray: [CGFloat] = []
 
         for _ in 0..<steps {
             v = self.functionBlock(self.duration * progress * 1000, 0, 1, self.duration * 1000);
-            value = startValue + v * (endValue - startValue);
+            value = startValue + CGFloat(v) * (endValue - startValue);
 
             valueArray.append(value)
             progress += increment
