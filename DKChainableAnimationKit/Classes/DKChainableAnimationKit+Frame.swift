@@ -27,6 +27,9 @@ public extension DKChainableAnimationKit {
         return self.makeSize(width, height)
     }
 
+    public func makeSize(_ size: CGSize) -> DKChainableAnimationKit {
+        return makeSize(size.width, size.height)
+    }
 
     public func makeSize(_ width: CGFloat, _ height: CGFloat) -> DKChainableAnimationKit {
 
